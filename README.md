@@ -1,73 +1,84 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+# Projeto de Autenticação JWT com TypeScript, Nest.js e Prisma ORM
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+Este é um projeto de exemplo para prática na implementação de autenticação JWT utilizando TypeScript, Nest.js e Prisma ORM.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+## Pré-requisitos
 
-## Description
+Antes de começar, verifique se você tem os seguintes requisitos instalados em sua máquina:
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+- Node.js
+- npm (ou yarn)
+- Docker (opcional, para executar o banco de dados usando contêineres)
 
-## Installation
+## Instalação
+
+1. Clone este repositório para o seu ambiente local:
 
 ```bash
-$ npm install
+git clone https://github.com/tamicaires/jwt-nest.git
 ```
 
-## Running the app
+2. Navegue até o diretório do projeto:
 
 ```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
+cd jwt-nest
 ```
 
-## Test
+3. Instale as dependências do projeto:
 
 ```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
+npm install
 ```
 
-## Support
+## Configuração do Banco de Dados
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+Este projeto utiliza o Prisma ORM com um banco de dados PostgreSQL. Certifique-se de ter o PostgreSQL instalado em sua máquina ou utilize o Docker para executar um contêiner PostgreSQL.
 
-## Stay in touch
+1. Crie um arquivo .env na raiz do projeto e adicione as seguintes variáveis de ambiente:
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+```bash
+DATABASE_URL="postgresql://usuario:senha@localhost:5432/nome-do-banco"
+```
 
-## License
+2.Substitua usuario, senha e nome-do-banco com suas credenciais e nome do banco de dados PostgreSQL.
 
-Nest is [MIT licensed](LICENSE).
+Execute as migrações do Prisma para criar as tabelas necessárias no banco de dados:
+
+```bash
+npx prisma migrate dev --name init
+```
+
+ou
+
+```bash
+yarn prisma migrate dev --name init
+```
+
+## Executando o Servidor
+
+Depois de instalar as dependências e configurar o banco de dados, você pode iniciar o servidor Nest.js:
+
+```bash
+npm run start:dev
+```
+ou
+
+```bash
+yarn start:dev
+```
+
+Isso iniciará o servidor em modo de desenvolvimento e estará pronto para receber solicitações.
+
+## Uso
+Você pode começar a enviar solicitações para as rotas de autenticação utilizando JWT. O projeto vem com rotas de exemplo para registro, login e obtenção de informações do usuário autenticado.
+
+## Contribuição
+Contribuições são bem-vindas! Sinta-se à vontade para enviar pull requests com melhorias, correções de bugs ou novos recursos.
+
+## Autor
+Tamires Caires
+
+## Licença
+Este projeto está licenciado sob a MIT License.
+
+   
