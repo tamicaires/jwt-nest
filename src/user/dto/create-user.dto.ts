@@ -6,6 +6,7 @@ import {
   MaxLength,
   MinLength,
 } from 'class-validator';
+import { UserType } from '../enum/user-type.enum';
 
 export class CreateUserDto extends User {
   @IsEmail()
@@ -21,4 +22,7 @@ export class CreateUserDto extends User {
 
   @IsString()
   name: string;
+
+  @IsString()
+  role: UserType;
 }
