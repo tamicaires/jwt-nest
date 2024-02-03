@@ -19,7 +19,7 @@ export class AuthService {
     };
 
     const jwtToken = this.jwtService.sign(payload);
-
+    
     return {
       access_token: jwtToken
     }
@@ -27,7 +27,7 @@ export class AuthService {
 
   async validateUser(email: string, password: string) {
     const user = await this.userService.findByEmail(email);
-
+    
     if (user) {
       // Check if hash matches
       
@@ -39,8 +39,8 @@ export class AuthService {
           password:undefined,
         }
       }
+      
     }
-
     throw new Error('Email address or password provided is incorrect.')
   }
 }
